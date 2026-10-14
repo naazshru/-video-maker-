@@ -110,7 +110,7 @@ function rand(seed){let s=seed>>>0;return()=>{s=(s*1664525+1013904223)>>>0;retur
 
 const loader=new THREE.TextureLoader();
 const load=u=>new Promise(r=>loader.load(u,tx=>{tx.colorSpace=THREE.SRGBColorSpace;tx.anisotropy=8;r(tx)}));
-const [texFront,texSide,texTop,texLid]=await Promise.all(['tex/front.png','tex/side.jpg','tex/top.jpg','tex/lid.jpg'].map(load));
+const [texFront,texSide,texTop,texLid,texBack]=await Promise.all(['tex/front.png','tex/side.jpg','tex/top.jpg','tex/lid.jpg','tex/back.jpg'].map(load));
 
 // ---------- Jar (front = your exact product photo, untouched) ----------
 const IMG_W=878,IMG_H=884, S=2/IMG_W;            // 2 world units wide
@@ -125,7 +125,9 @@ function makeJar(opacity=1){
   const front=new THREE.Mesh(new THREE.PlaneGeometry(FW,FH),
      new THREE.MeshBasicMaterial({map:texFront,transparent:true,opacity,alphaTest:tr?0:0.05,toneMapped:false}));
   front.position.z=depth/2+0.002; g.add(front);
-  const back=front.clone(); back.rotation.y=Math.PI; back.position.z=-depth/2-0.002; g.add(back);
+  // back = real photo of the jar's clear back wall (petals visible), unchanged
+  const back=new THREE.Mesh(new THREE.PlaneGeometry(bodyW,bodyH),new THREE.MeshBasicMaterial({map:texBack,transparent:tr,opacity,toneMapped:false}));
+  back.rotation.y=Math.PI; back.position.set(0,bodyCY,-depth/2-0.002); g.add(back);
   const sideMat=new THREE.MeshStandardMaterial({map:texSide,roughness:.35,metalness:0,emissive:0xffffff,emissiveMap:texSide,emissiveIntensity:.55,transparent:tr,opacity});
   const topMat=new THREE.MeshStandardMaterial({map:texTop,roughness:.3,transparent:tr,opacity});
   const none=new THREE.MeshBasicMaterial({visible:false});
@@ -134,7 +136,7 @@ function makeJar(opacity=1){
   // clear lid
   const lidMat=new THREE.MeshPhysicalMaterial({map:texLid,roughness:.15,transparent:true,opacity:0.92*opacity,clearcoat:1});
   const lid=new THREE.Mesh(new THREE.BoxGeometry(FW*0.985,0.085,depth*1.04),[lidMat,lidMat,
-     new THREE.MeshPhysicalMaterial({color:0xf2e9ee,roughness:.12,transparent:true,opacity:.55*opacity,clearcoat:1}),lidMat,none,none]);
+     new THREE.MeshPhysicalMaterial({color:0xf2e9ee,roughness:.12,transparent:true,opacity:.55*opacity,clearcoat:1}),lidMat,none,lidMat]);
   lid.position.y=FH/2-0.11; g.add(lid);
   return g;
 }
