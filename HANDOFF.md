@@ -31,7 +31,7 @@ Outputs go to out/. Copy to repo root as Ushvika_Rose_Badam.mp4 / Ushvika_Rose_P
 - More products: user sends a "character sheet" (8 views + top + bottom) per product.
 
 ## How a new product is added
-1. Crop views from the sheet into <product>/tex (see badam/ for round jars, twist/ for pouches).
+1. `python3 tools/crop_sheet.py <product>/src/sheet.png <product>/tex` (sheet must be a transparent PNG; views left→right, top→bottom = 45° steps around the pack, then TOP, BOTTOM).
 2. Copy the closest index.html, set window.PRODUCT (dur, cardRot per benefit, hero camera), texts.
 3. music.json → `python3 trailer/score.py <p>/music.wav <p>/music.json`
 4. VO via vidIQ → <p>/vo_raw.mp3, split lines into <p>/vo_segments.txt → `trailer/mix.sh <p> <dur>`
