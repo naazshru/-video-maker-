@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ushvika Rose Jelly – Trailer</title>
+<link rel="stylesheet" href="../trailer/fonts/fonts.css">
+<style>
+  html,body{margin:0;padding:0;width:1920px;height:1080px;overflow:hidden;background:#0d0205}
+  #stage{position:relative;width:1920px;height:1080px;overflow:hidden;
+    background:radial-gradient(ellipse at 50% 55%, #7a0c22 0%, #3d0512 45%, #0d0205 100%)}
+  #rays{position:absolute;left:50%;top:50%;width:3000px;height:3000px;margin:-1500px 0 0 -1500px;opacity:0;
+    background:repeating-conic-gradient(from 0deg, rgba(255,215,140,.10) 0deg 4deg, rgba(255,215,140,0) 4deg 14deg);
+    -webkit-mask:radial-gradient(circle, #000 0%, rgba(0,0,0,.6) 25%, transparent 55%);mask:radial-gradient(circle, #000 0%, rgba(0,0,0,.6) 25%, transparent 55%);filter:blur(3px)}
+  #bgGlow{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(255,120,140,.35), rgba(0,0,0,0) 45%);opacity:0}
+  canvas{position:absolute;inset:0}
+  .t{position:absolute;color:#fff;opacity:0;text-align:center}
+  .serif{font-family:'Playfair Display',serif;font-weight:700}
+  .ital{font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
+  .sans{font-family:'Poppins',sans-serif}
+  .script{font-family:'Great Vibes',cursive}
+  .gold{background:linear-gradient(180deg,#fff6d6 0%,#f3c96b 45%,#b9862b 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .line{position:absolute;height:2px;background:linear-gradient(90deg,rgba(243,201,107,0),#f3c96b,rgba(243,201,107,0));transform-origin:center}
+  .card{position:absolute;left:1040px;top:320px;width:780px;opacity:0}
+  .card .num{font-family:'Poppins';font-weight:600;font-size:30px;letter-spacing:10px;color:#f3c96b}
+  .card .head{font-family:'Playfair Display';font-weight:700;font-size:88px;line-height:1.05;color:#fff;margin-top:14px}
+  .card .sub{font-family:'Poppins';font-weight:300;font-size:36px;color:#ffd0d8;margin-top:26px}
+  .card .bar{height:4px;width:0;background:linear-gradient(90deg,#f3c96b,#e0304f);margin-top:30px}
+  .card .ico{width:110px;height:110px;border-radius:50%;border:3px solid #f3c96b;display:flex;align-items:center;justify-content:center;margin-bottom:28px}
+  #flare{position:absolute;left:-400px;top:540px;width:2720px;height:6px;opacity:0;
+    background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,225,190,.95),rgba(255,255,255,0));filter:blur(2px)}
+  #vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.7) 100%)}
+  #bars{position:absolute;inset:0}
+  #bars:before,#bars:after{content:"";position:absolute;left:0;right:0;height:var(--bh,0px);background:#000}
+  #bars:before{top:0} #bars:after{bottom:0}
+  #fade{position:absolute;inset:0;background:#000;opacity:1}
+  #whiteflash{position:absolute;inset:0;background:#fff4e6;opacity:0}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="rays"></div>
+  <div id="bgGlow"></div>
+  <div id="canvasHolder"></div>
+
+  <div class="t ital" id="intro1" style="left:0;width:1920px;top:820px;font-size:60px;color:#ffe3ea">Crafted from the essence of roses…</div>
+
+  <div class="t serif gold" id="brand" style="left:0;width:1920px;top:60px;font-size:120px;letter-spacing:30px">USHVIKA</div>
+  <div class="t script" id="tagline" style="left:0;width:1920px;top:200px;font-size:60px;color:#ffd9e2">Nature's Goodness. For You</div>
+
+  <div class="t sans" id="introducing" style="left:0;width:1920px;top:70px;font-size:34px;letter-spacing:22px;color:#f3c96b;font-weight:600">INTRODUCING</div>
+  <div class="t serif" id="product" style="left:0;width:1920px;top:860px;font-size:116px;color:#fff;letter-spacing:6px">Rose <span class="gold">Jelly</span></div>
+
+  <div class="card" id="b1"><div class="ico"><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#f3c96b" stroke-width="1.6"><path d="M12 21c-4-3-7-6-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 4-3 7-7 10z"/></svg></div>
+    <div class="num">01</div><div class="head">Pure Rose<br>Goodness</div><div class="sub">The delicate flavour of rose in every spoon.</div><div class="bar"></div></div>
+  <div class="card" id="b2"><div class="ico"><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#f3c96b" stroke-width="1.6"><rect x="4" y="6" width="16" height="13" rx="3"/><path d="M4 10c3 2 13 2 16 0"/></svg></div>
+    <div class="num">02</div><div class="head">Spread<br>&amp; Enjoy</div><div class="sub">On toast, breads, parathas &amp; crackers.</div><div class="bar"></div></div>
+  <div class="card" id="b3"><div class="ico"><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#f3c96b" stroke-width="1.6"><path d="M7 10a5 5 0 0 1 10 0"/><path d="M6 10h12l-6 11z"/></svg></div>
+    <div class="num">03</div><div class="head">Dessert<br>Magic</div><div class="sub">Swirl into ice cream, yogurt &amp; cakes.</div><div class="bar"></div></div>
+  <div class="card" id="b4"><div class="ico"><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#f3c96b" stroke-width="1.6"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 13h18M12 9v12"/><path d="M12 9c-2-4-6-4-6-1s6 1 6 1c0 0 6 2 6-1s-4-3-6 1"/></svg></div>
+    <div class="num">04</div><div class="head">Perfect<br>to Gift</div><div class="sub">A jar of love, crowned in gold.</div><div class="bar"></div></div>
+
+  <div class="t ital" id="hero1" style="left:0;width:1920px;top:40px;font-size:80px;color:#fff">A Spoonful of Roses</div>
+  <div class="t script gold" id="hero2" style="left:0;width:1920px;top:140px;font-size:104px">sweetened by nature</div>
+
+  <div class="t serif gold" id="endBrand" style="left:120px;width:820px;top:280px;font-size:120px;letter-spacing:18px;text-align:left">USHVIKA</div>
+  <div class="t serif" id="endProd" style="left:120px;width:900px;top:430px;font-size:96px;color:#fff;text-align:left">Rose Jelly</div>
+  <div class="line" id="endLine" style="left:120px;top:575px;width:640px"></div>
+  <div class="t sans" id="endOrder" style="left:120px;width:900px;top:610px;font-size:40px;color:#ffd0d8;text-align:left;font-weight:300">Order now &nbsp;<b style="font-weight:600;color:#fff">81462-06677</b></div>
+  <div class="t sans" id="endBy" style="left:120px;width:900px;top:672px;font-size:28px;color:#ffd0d8;text-align:left;font-weight:300;letter-spacing:4px">PACKED &amp; MARKETED BY USHVIKA FOODS</div>
+  <div class="t script" id="endTag" style="left:120px;width:900px;top:730px;font-size:60px;color:#f3c96b;text-align:left">Nature's Goodness. For You</div>
+
+  <div id="flare"></div>
+  <div id="whiteflash"></div>
+  <div id="vignette"></div>
+  <div id="bars"></div>
+  <div id="fade"></div>
+</div>
+
+<script type="importmap">{"imports":{"three":"../trailer/lib/three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+const W=1920,H=1080;
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});
+renderer.setSize(W,H); renderer.setPixelRatio(1); renderer.outputColorSpace=THREE.SRGBColorSpace; renderer.setClearColor(0,0);
+document.getElementById('canvasHolder').appendChild(renderer.domElement);
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(30,W/H,0.1,100);
+
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const eio=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const eout=t=>1-Math.pow(1-t,3);
+const prog=(t,a,b)=>clamp((t-a)/(b-a));
+function kf(t,keys){
+  if(t<=keys[0][0]) return keys[0][1];
+  for(let i=0;i<keys.length-1;i++){const [t0,v0]=keys[i],[t1,v1]=keys[i+1];
+    if(t<=t1){const p=eio((t-t0)/(t1-t0));return Array.isArray(v0)?v0.map((v,j)=>lerp(v,v1[j],p)):lerp(v0,v1,p);}}
+  return keys[keys.length-1][1];
+}
+function rand(seed){let s=seed>>>0;return()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296;}}
+
+const loader=new THREE.TextureLoader();
+// raw = exact photo pixels passed straight to the screen (no colour management, no lighting)
+const loadRaw=u=>new Promise(r=>loader.load(u,tx=>{tx.colorSpace=THREE.NoColorSpace;tx.anisotropy=8;tx.generateMipmaps=true;r(tx)}));
+const [tA,tC,tD,tG,tLid,tBot]=await Promise.all(['tex/A.png','tex/C.png','tex/D.png','tex/G.png','tex/LID.png','tex/BOTTOM.png'].map(loadRaw));
+
+// ---------- Jar: image-based 360° turntable built only from the real photos ----------
+// The jar is round, so its outline is identical from every side; only the surface slides
+// around the cylinder. Each photo is re-projected onto the cylinder and neighbouring
+// photos are cross-faded as the jar turns. At rest the front photo is shown 1:1.
+const JAR_H=2.3, JAR_W=JAR_H*600/820;
+const jarVS=`varying vec2 vUv; void main(){vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`;
+const jarFS=`
+precision highp float; varying vec2 vUv;
+uniform sampler2D t0,t1,t2,t3; uniform float rot, R, opacity, sheen, refl;
+const float PI=3.14159265;
+float wrapPi(float a){ return a - 2.0*PI*floor((a+PI)/(2.0*PI)); }
+void addView(sampler2D tx, float ang, float phs, inout vec3 c, inout float ws){
+  float d=wrapPi(rot-ang);
+  float wc=1.0-smoothstep(PI/4.0-0.16, PI/4.0+0.16, abs(d));
+  if(wc<=0.0) return;
+  float ph=phs+d;
+  if(abs(ph)>1.50) return;
+  float fw=wc*(1.0-smoothstep(1.15,1.50,abs(ph)));
+  vec4 s=texture2D(tx, vec2(0.5+R*sin(ph), vUv.y));
+  c+=fw*s.rgb*s.a; ws+=fw*s.a;
+}
+void main(){
+  float u=(vUv.x-0.5)/R;
+  float a=texture2D(t0,vUv).a;
+  vec3 c=vec3(0.0); float ws=0.0;
+  if(abs(u)<0.999){
+    float phs=asin(u);
+    addView(t0,0.0,phs,c,ws); addView(t1,0.5*PI,phs,c,ws); addView(t2,PI,phs,c,ws); addView(t3,1.5*PI,phs,c,ws);
+  }
+  vec3 col = ws>0.001 ? c/ws : texture2D(t0,vUv).rgb;
+  // passing glint of light across the glass (only during reveal moments)
+  float g = exp(-pow((vUv.x - sheen)*9.0,2.0)) * 0.35 * step(-0.5,sheen);
+  col += vec3(1.0,0.95,0.85)*g*a;
+  float rf = refl>0.5 ? (1.0-smoothstep(0.0,0.42,vUv.y)) : 1.0;  // reflection fades into the floor
+  gl_FragColor=vec4(col, a*opacity*rf);
+}`;
+function jarMat(op){return new THREE.ShaderMaterial({vertexShader:jarVS,fragmentShader:jarFS,transparent:true,depthWrite:false,
+  uniforms:{t0:{value:tA},t1:{value:tC},t2:{value:tD},t3:{value:tG},rot:{value:0},R:{value:0.485},opacity:{value:op},sheen:{value:-1},refl:{value:0}}});}
+const jar=new THREE.Group(); scene.add(jar);
+const jarM=jarMat(1), reflM=jarMat(0.2); reflM.uniforms.refl.value=1;
+const jarMesh=new THREE.Mesh(new THREE.PlaneGeometry(JAR_W,JAR_H),jarM); jar.add(jarMesh);
+const reflMesh=new THREE.Mesh(new THREE.PlaneGeometry(JAR_W,JAR_H),reflM); reflMesh.scale.y=-1; reflMesh.position.y=-JAR_H; jar.add(reflMesh);
+const FLOOR_Y=-JAR_H/2;
+
+// fade the reflection into the floor
+function radialTex(stops){const c=document.createElement('canvas');c.width=c.height=256;const x=c.getContext('2d');
+  const g=x.createRadialGradient(128,128,0,128,128,128);stops.forEach(([o,col])=>g.addColorStop(o,col));x.fillStyle=g;x.fillRect(0,0,256,256);
+  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t;}
+const floorGrad=(()=>{const c=document.createElement('canvas');c.width=4;c.height=256;const x=c.getContext('2d');
+  const g=x.createLinearGradient(0,0,0,256);g.addColorStop(0,'rgba(13,2,5,0.15)');g.addColorStop(0.55,'rgba(13,2,5,0.85)');g.addColorStop(1,'rgba(13,2,5,1)');
+  x.fillStyle=g;x.fillRect(0,0,4,256);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t;})();
+const floorFade=new THREE.Mesh(new THREE.PlaneGeometry(JAR_W*1.6,JAR_H),new THREE.MeshBasicMaterial({map:floorGrad,transparent:true,depthWrite:false}));
+floorFade.visible=false;
+
+// ---------- Lid (top view photo) & bottom (macro of jelly through glass) ----------
+const lidMat=new THREE.ShaderMaterial({vertexShader:jarVS,transparent:true,depthWrite:false,uniforms:{tx:{value:tLid},opacity:{value:0}},
+  fragmentShader:`precision highp float;varying vec2 vUv;uniform sampler2D tx;uniform float opacity;void main(){vec4 s=texture2D(tx,vUv);gl_FragColor=vec4(s.rgb,s.a*opacity);}`});
+const lid=new THREE.Mesh(new THREE.PlaneGeometry(1.8,1.8),lidMat); scene.add(lid);
+const botMat=lidMat.clone(); botMat.uniforms={tx:{value:tBot},opacity:{value:0}};
+const bottom=new THREE.Mesh(new THREE.PlaneGeometry(2.4,2.4),botMat); scene.add(bottom);
+
+// glow & halo
+const glow=new THREE.Sprite(new THREE.SpriteMaterial({map:radialTex([[0,'rgba(255,120,140,0.95)'],[1,'rgba(255,60,90,0)']]),transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:0}));
+glow.scale.set(6.5,6.5,1); glow.position.z=-2.5; scene.add(glow);
+const ringMat=new THREE.MeshBasicMaterial({color:0xf3c96b,transparent:true,opacity:0});
+const rings=[new THREE.Mesh(new THREE.TorusGeometry(1.8,0.008,8,200),ringMat),new THREE.Mesh(new THREE.TorusGeometry(2.0,0.004,8,200),ringMat)];
+rings.forEach(r=>scene.add(r));
+
+// bokeh
+const bokehTex=radialTex([[0,'rgba(255,215,200,0.9)'],[1,'rgba(255,200,215,0)']]);
+const bokeh=[];{const r=rand(11);for(let i=0;i<45;i++){const s=new THREE.Sprite(new THREE.SpriteMaterial({map:bokehTex,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:.12+.25*r()}));
+  const sc=.2+.7*r();s.scale.set(sc,sc,1);s.userData={x:(r()-.5)*18,y:(r()-.5)*9,z:-6-r()*6,ph:r()*6.28,sp:.1+.2*r(),o:s.material.opacity};scene.add(s);bokeh.push(s);}}
+
+// gold sparkles
+const sparkTex=(()=>{const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d');
+  const g=x.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,'rgba(255,245,210,1)');g.addColorStop(.25,'rgba(255,215,120,.8)');g.addColorStop(1,'rgba(255,200,100,0)');
+  x.fillStyle=g;x.fillRect(0,0,64,64);x.fillStyle='rgba(255,250,230,.9)';x.fillRect(31,4,2,56);x.fillRect(4,31,56,2);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t;})();
+const sparks=[];{const r=rand(99);for(let i=0;i<90;i++){const s=new THREE.Sprite(new THREE.SpriteMaterial({map:sparkTex,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:0}));
+  s.userData={x:(r()-.5)*9,y:(r()-.5)*5,z:-1.5+r()*3.5,ph:r()*6.28,sp:.6+1.8*r(),sc:.05+.12*r(),dr:.05+.15*r()};scene.add(s);sparks.push(s);}}
+
+// rose petals
+function petalTex(h,l){const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d');
+  const g=x.createRadialGradient(64,80,4,64,64,64);g.addColorStop(0,`hsl(${h},85%,${l+18}%)`);g.addColorStop(.7,`hsl(${h},82%,${l}%)`);g.addColorStop(1,`hsl(${h},78%,${l-15}%)`);
+  x.fillStyle=g;x.beginPath();x.moveTo(64,120);x.bezierCurveTo(-10,80,10,10,64,22);x.bezierCurveTo(118,10,138,80,64,120);x.fill();
+  const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t;}
+const petalMats=[[350,45],[345,52],[355,40],[340,55]].map(([h,l])=>new THREE.MeshBasicMaterial({map:petalTex(h,l),transparent:true,side:THREE.DoubleSide,alphaTest:.1}));
+const petalGeo=new THREE.PlaneGeometry(.22,.22,4,4);
+{const p=petalGeo.attributes.position;for(let i=0;i<p.count;i++){const x=p.getX(i);p.setZ(i,x*x*1.6);}}
+const petals=[];{const r=rand(5);for(let i=0;i<120;i++){const m=new THREE.Mesh(petalGeo,petalMats[i%4]);
+  m.userData={x:(r()-.5)*12,z:-4+r()*6.5,y0:r()*10,sp:.3+.45*r(),sw:.3+.6*r(),ph:r()*6.28,rx:r()*3,ry:r()*3,rz:r()*3,sc:.6+.9*r()};scene.add(m);petals.push(m);}}
+
+// ---------- DOM helpers ----------
+const $=id=>document.getElementById(id);
+function show(id,t,a,b,{fin=.6,fout=.5,dy=30,blur=10,ls=null}={}){
+  const el=$(id); const pin=eout(prog(t,a,a+fin)), pout=prog(t,b-fout,b);
+  el.style.opacity=t<a||t>b?0:pin*(1-pout);
+  el.style.transform=`translateY(${(1-pin)*dy-pout*dy*.5}px) scale(${1+pout*.03})`;
+  el.style.filter=`blur(${(1-pin)*blur+pout*blur}px)`;
+  if(ls) el.style.letterSpacing=lerp(ls[0],ls[1],eout(prog(t,a,b)))+'px';
+}
+function card(id,t,a,b){
+  const el=$(id); const pin=eout(prog(t,a,a+.7)), pout=eio(prog(t,b-.45,b));
+  el.style.opacity=t<a||t>b?0:pin*(1-pout);
+  el.style.transform=`translateX(${(1-pin)*120-pout*80}px)`;
+  el.style.filter=`blur(${(1-pin)*8+pout*8}px)`;
+  el.querySelector('.bar').style.width=(eout(prog(t,a+.3,a+1.4))*420)+'px';
+}
+
+// ---------- Timeline (30 s) ----------
+// 0–3.2  macro: jelly through the glass bottom      3.2–6.6  golden lid, brand reveal
+// 6.6–12 jar reveal + full 360° turn               12–22    four highlights
+// 22–26  hero push-in                               26–30    end card
+const DUR=30; window.DURATION=DUR;
+const TAU=Math.PI*2;
+window.renderAt=function(t){
+  // ---- macro bottom shot ----
+  const botO=kf(t,[[0,0],[0.6,1],[2.9,1],[3.25,0]]);
+  botMat.uniforms.opacity.value=botO; bottom.visible=botO>0;
+  bottom.position.set(0,0,kf(t,[[0,4.2],[3.25,5.6]])); bottom.rotation.set(0,0,-t*0.25);
+  // ---- lid shot ----
+  const lidO=kf(t,[[3.1,0],[3.4,1],[6.2,1],[6.8,0]]);
+  lidMat.uniforms.opacity.value=lidO; lid.visible=lidO>0;
+  lid.position.set(0,kf(t,[[3.2,-0.3],[5.8,-0.3],[6.8,1.3]]),kf(t,[[3.2,2.4],[5.8,1.4],[6.8,0]]));
+  lid.rotation.set(kf(t,[[5.8,0],[6.8,-1.35]]),0,(t-3.2)*1.2*Math.max(0.15,1-prog(t,5.2,6.6)));
+
+  // ---- jar ----
+  const jarO=kf(t,[[0,0],[6.0,0],[6.9,1],[30,1]]);
+  const rot=kf(t,[[0,-0.9],[6.0,-0.9],[7.6,0],[8.0,0],[12.0,TAU],
+                  [12.6,TAU-0.32],[14.8,TAU-0.24],[15.3,TAU+0.3],[17.3,TAU+0.24],[17.8,TAU-0.3],[19.8,TAU-0.22],[20.3,TAU+0.26],[22,TAU+0.2],
+                  [23,TAU],[26,TAU],[27,TAU-0.25],[30,TAU-0.2]]);
+  const jarX=kf(t,[[0,0],[12,0],[12.8,-1.4],[22,-1.4],[22.8,0],[26,0],[26.9,1.25],[30,1.25]]);
+  const jarY=kf(t,[[0,-0.25],[6.0,-0.25],[7.2,0],[30,0]])+Math.sin(t*1.3)*0.02;
+  [jarM,reflM].forEach((m,i)=>{m.uniforms.rot.value=rot; m.uniforms.opacity.value=jarO*(i?0.2:1);
+     m.uniforms.sheen.value=(t>6.6&&t<8.2)?lerp(-0.4,1.4,prog(t,6.6,8.2)):(t>22.4&&t<23.6)?lerp(-0.4,1.4,prog(t,22.4,23.6)):-1;});
+  jar.position.set(jarX,jarY,0); jar.visible=jarO>0;
+  reflMesh.position.y=-JAR_H-2*jarY;
+
+  // ---- camera ----
+  const camPos=kf(t,[[0,[0,0,8]],[6.0,[0,0,8]],[6.8,[0,-0.3,7.0]],[8,[0,0.25,8.2]],[12,[0,0.5,8.4]],[12.8,[0,0.25,8.0]],
+                     [22,[0,0.3,7.6]],[23,[0,0.2,6.6]],[25.8,[0,0.1,5.6]],[26.8,[0,0.25,8.4]],[30,[0,0.3,8.0]]]);
+  const look=kf(t,[[0,[0,0,0]],[6.8,[0,0.1,0]],[8,[0,0,0]],[22,[0,0,0]],[23,[0,0.3,0]],[25.8,[0,0.45,0]],[26.8,[0,0,0]]]);
+  const drift=Math.sin(t*0.45)*0.1;
+  camera.position.set(camPos[0]+drift,camPos[1],camPos[2]); camera.lookAt(look[0]+drift*.3,look[1],look[2]);
+
+  // ---- halo, glow ----
+  ringMat.opacity=kf(t,[[0,0],[6.5,0],[8,.85],[11.6,.85],[12.5,0],[22.5,0],[23.5,.8],[30,.8]]);
+  rings.forEach((r,i)=>{r.position.set(jarX,jarY+0.05,-0.9);r.rotation.set(Math.sin(t*.6+i)*.25,Math.cos(t*.5+i)*.25,t*.2*(i?1:-1));r.scale.setScalar(kf(t,[[6.5,.4],[8,1],[30,1]]));});
+  glow.position.set(jarX,jarY,-2.5); glow.material.opacity=kf(t,[[0,.35],[3,.5],[6.5,.6],[7.5,.85],[30,.85]])*(0.85+0.15*Math.sin(t*2));
+
+  bokeh.forEach(b=>{const u=b.userData;b.position.set(u.x+Math.sin(t*u.sp+u.ph)*.4,u.y+Math.cos(t*u.sp*.8+u.ph)*.3,u.z);b.material.opacity=u.o*kf(t,[[0,.3],[3,.7],[7,1],[30,1]]);});
+  const sparkAmt=kf(t,[[0,.6],[3,1],[30,1]]);
+  sparks.forEach(s=>{const u=s.userData;const tw=Math.max(0,Math.sin(t*u.sp*2+u.ph));
+    s.position.set(u.x+Math.sin(t*.3+u.ph)*.3,u.y+((t*u.dr)%2)-0.5,u.z);s.scale.setScalar(u.sc*(0.4+tw));s.material.opacity=tw*sparkAmt*.9;});
+  const petalAmt=kf(t,[[0,0],[6,0],[7,1],[30,1]]);
+  const burst=kf(t,[[22.4,0],[23.4,1],[25.4,1],[26.2,0]]);
+  petals.forEach(p=>{const u=p.userData;p.visible=petalAmt>0.01;
+    p.position.set(u.x+Math.sin(t*u.sw+u.ph)*.6+burst*Math.sign(u.x)*.6,5-((u.y0+t*u.sp)%10),u.z);
+    p.rotation.set(u.rx+t*u.sw*1.3,u.ry+t*u.sp*1.1,u.rz+t*.5);p.scale.setScalar(u.sc*petalAmt);});
+
+  renderer.render(scene,camera);
+
+  // ---- DOM ----
+  $('fade').style.opacity=t<1.0?1-eout(t/1.0):(t>29.2?prog(t,29.2,30):0);
+  $('bgGlow').style.opacity=kf(t,[[0,.3],[6.5,.5],[7.5,1],[30,1]]);
+  const rays=$('rays'); rays.style.opacity=kf(t,[[0,0],[3.2,0],[4,.9],[6.4,.9],[7.2,.45],[22,.45],[23,.9],[30,.7]]); rays.style.transform=`rotate(${t*4}deg)`;
+  $('bars').style.setProperty('--bh',kf(t,[[0,110],[3,110],[4.5,0],[30,0]])+'px');
+  show('intro1',t,0.7,3.2,{ls:[2,8],dy:20});
+  show('brand',t,3.8,6.6,{ls:[60,26],dy:0,blur:16});
+  show('tagline',t,4.4,6.6,{dy:25});
+  show('introducing',t,7.4,11.8,{ls:[40,22],dy:0});
+  show('product',t,8.0,11.8,{dy:40,ls:[30,6]});
+  card('b1',t,12.9,15.2); card('b2',t,15.4,17.7); card('b3',t,17.9,20.2); card('b4',t,20.4,22.4);
+  show('hero1',t,23.0,26.0,{dy:30}); show('hero2',t,23.5,26.0,{dy:30,blur:14});
+  show('endBrand',t,27.0,30.5,{ls:[40,18],dy:0,blur:14}); show('endProd',t,27.3,30.5,{dy:30});
+  show('endOrder',t,27.7,30.5,{dy:20}); show('endBy',t,27.9,30.5,{dy:20}); show('endTag',t,28.2,30.5,{dy:20});
+  const el=$('endLine'); el.style.transform=`scaleX(${eout(prog(t,27.5,28.5))})`; el.style.opacity=t>27.5?1:0;
+  const fl=$('flare'); let fo=0,fx=0;
+  for(const h of [3.25,6.8,12.9,22.9,26.9]){const p=prog(t,h-.15,h+.9);if(p>0&&p<1){fo=Math.sin(p*Math.PI);fx=lerp(-1400,1400,p);}}
+  fl.style.opacity=fo*.9; fl.style.transform=`translateX(${fx}px) scaleY(${1+fo*3})`;
+  let wf=0;for(const h of [3.25,6.8,22.9,26.9]){const p=prog(t,h-.05,h+.5);if(p>0&&p<1)wf=Math.max(wf,(1-p)*.6);}
+  $('whiteflash').style.opacity=wf;
+};
+await document.fonts.ready;
+window.renderAt(0);
+window.READY=true;
+</script>
+</body>
+</html>

@@ -7,7 +7,7 @@ const browser = await chromium.launch({ args: ['--use-gl=angle','--use-angle=swi
 const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
 page.on('console', m => console.log('page:', m.text()));
 page.on('pageerror', e => console.log('pageerror:', e.message));
-await page.goto('http://localhost:8765/index.html');
+await page.goto(process.env.PAGE_URL || 'http://localhost:8765/index.html');
 await page.waitForFunction(() => window.READY === true, null, { timeout: 60000 });
 const dur = await page.evaluate(() => window.DURATION);
 const total = Math.round(dur * fps);
