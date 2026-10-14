@@ -15,8 +15,8 @@ Talk to the user in Hindi. They want it quick, beautiful, cinematic.
 |---|---|---|
 | Rose Tea Premix | trailer/ | done → Ushvika_Rose_Tea_Trailer.mp4 (music only, no VO yet) |
 | Rose Jelly | jelly/ | done → Ushvika_Rose_Jelly.mp4 |
-| Rose Badam Shake Premix | badam/ | scene + VO + audio ready, **needs render** |
-| Rose Petal Twist (rose milk shake, pouch) | twist/ | scene + VO + audio ready, **needs render** (benefit cards not yet confirmed by user) |
+| Rose Badam Shake Premix | badam/ | done → Ushvika_Rose_Badam.mp4 |
+| Rose Petal Twist (rose milk shake, pouch) | twist/ | done → Ushvika_Rose_Petal_Twist.mp4 (benefit cards not yet confirmed by user) |
 
 ## Render
 ```
