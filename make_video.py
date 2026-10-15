@@ -287,8 +287,8 @@ def problem(start, end, label, color, given_box, practice=False):
             *bt.line(sentence), caption=sentence, pad=0.5)
         cur = target
     say(f"I got to {words(end)}! Great job!",
-        add(Rect(80, 600, 520, 648, fill="green", r=24, anim="pop")),
-        add(Text(300, 624, f"We counted to {end}!", 30, "white"), 0.1), pad=1.0)
+        add(Rect(785, 560, 1225, 608, fill="green", r=24, anim="pop")),
+        add(Text(1005, 584, f"We counted to {end}!", 30, "white"), 0.1), pad=1.0)
 
 
 # ================================================================== recap
