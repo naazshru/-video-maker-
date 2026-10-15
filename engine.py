@@ -25,7 +25,7 @@ COL = dict(
     white=(255, 255, 255),
     blue=(86, 156, 226),
     blue_d=(36, 90, 160),
-    pink=(216, 27, 96),
+    pink=(200, 30, 100),
     green=(34, 150, 84),
     orange=(236, 120, 20),
     purple=(118, 70, 220),
@@ -184,32 +184,30 @@ class One(El):
 
 
 class Mark(El):
-    """Quick drawing: 'one' = line, 'ten' = line with cross, 'hundred' = hatched square."""
+    """Book-style quick drawing (all pink): one = line, ten = line with a cross,
+    hundred = a bundle of lines tied with a band."""
     anim = "wipe_down"
     dur = 0.3
 
-    def __init__(self, kind, cx, top, h=56, color=None, width=6, **kw):
+    def __init__(self, kind, cx, top, h=56, color="pink", width=6, **kw):
         super().__init__(**kw)
         self.kind, self.cx, self.top, self.h, self.width = kind, cx, top, h, width
-        self.color = COL[color or {"one": "orange", "ten": "green", "hundred": "purple"}[kind]]
+        self.color = COL.get(color, color)
 
     def bbox(self):
-        if self.kind == "hundred":
-            s = self.h * 0.85
-            return (self.cx - s / 2, self.top, self.cx + s / 2, self.top + s)
-        half = self.h * 0.32 if self.kind == "ten" else self.width
+        half = {"one": self.width, "ten": self.h * 0.32, "hundred": self.h * 0.34}[self.kind]
         return (self.cx - half, self.top, self.cx + half, self.top + self.h)
 
     def draw(self, d, ox, oy):
         cx, top, h, c, w = self.cx - ox, self.top - oy, self.h, self.color, self.width
         if self.kind == "hundred":
-            s = h * 0.85
-            x0, y0 = cx - s / 2, top
-            d.rectangle((x0, y0, x0 + s, y0 + s), outline=c, width=w)
-            for i in (1, 2, 3):
-                p = s * i / 4
-                d.line((x0 + p, y0, x0 + p, y0 + s), fill=c, width=max(2, w // 2))
-                d.line((x0, y0 + p, x0 + s, y0 + p), fill=c, width=max(2, w // 2))
+            half = h * 0.2
+            n = 6
+            for i in range(n):
+                x = cx - half + 2 * half * i / (n - 1)
+                d.line((x, top + 2, x, top + h - 2), fill=c, width=max(3, w // 2))
+            for yy in (top + h * 0.42, top + h * 0.58):
+                d.line((cx - h * 0.32, yy, cx + h * 0.32, yy), fill=c, width=w)
             return
         d.line((cx, top, cx, top + h), fill=c, width=w)
         d.ellipse((cx - w / 2, top - w / 2, cx + w / 2, top + w / 2), fill=c)
@@ -217,6 +215,113 @@ class Mark(El):
         if self.kind == "ten":
             half = h * 0.28
             d.line((cx - half, top + h / 2, cx + half, top + h / 2), fill=c, width=w)
+
+
+class Straw(El):
+    """One straw (a 'one' in the book)."""
+
+    def __init__(self, x, y, w=10, h=80, **kw):
+        super().__init__(**kw)
+        self.x, self.y, self.w, self.h = x, y, w, h
+
+    def bbox(self):
+        return (self.x, self.y, self.x + self.w, self.y + self.h)
+
+    def draw(self, d, ox, oy):
+        x, y = self.x - ox, self.y - oy
+        d.rounded_rectangle((x, y, x + self.w, y + self.h), radius=self.w // 2,
+                            fill=COL["blue"], outline=COL["blue_d"], width=2)
+
+
+class Bundle(El):
+    """A bundle of straws tied with a band: n=10 is a ten, n=100 is a hundred."""
+
+    def __init__(self, x, y, n=10, h=80, **kw):
+        super().__init__(**kw)
+        self.x, self.y, self.n, self.h = x, y, n, h
+        self.w = h * 0.34 if n == 10 else h * 0.9
+
+    def bbox(self):
+        return (self.x - 3, self.y, self.x + self.w + 3, self.y + self.h)
+
+    def draw(self, d, ox, oy):
+        x, y, w, h = self.x - ox, self.y - oy, self.w, self.h
+        dark, fill = COL["blue_d"], COL["blue"]
+        if self.n == 10:
+            d.rounded_rectangle((x, y, x + w, y + h), radius=w * 0.3, fill=fill, outline=dark, width=2)
+            for i in range(1, 4):
+                xx = x + w * i / 4
+                d.line((xx, y + 3, xx, y + h - 3), fill=dark, width=2)
+            for yy in (y + h * 0.36, y + h * 0.6):
+                d.line((x - 1, yy, x + w + 1, yy), fill=dark, width=3)
+            return
+        e = h * 0.24
+        d.rectangle((x, y + e / 2, x + w, y + h - e / 2), fill=fill)
+        d.ellipse((x, y + h - e, x + w, y + h), fill=fill, outline=dark, width=2)
+        d.rectangle((x + 2, y + e / 2, x + w - 2, y + h - e / 2), fill=fill)
+        d.line((x, y + e / 2, x, y + h - e / 2), fill=dark, width=2)
+        d.line((x + w, y + e / 2, x + w, y + h - e / 2), fill=dark, width=2)
+        for i in range(1, 10):
+            xx = x + w * i / 10
+            d.line((xx, y + e, xx, y + h - e * 0.3), fill=dark, width=1)
+        d.ellipse((x, y, x + w, y + e), fill=(170, 205, 240), outline=dark, width=2)
+        r = max(2, w / 22)
+        for j in range(3):
+            for i in range(9):
+                cx = x + w * (i + 1) / 10
+                cy = y + e * (0.25 + 0.25 * j)
+                if ((cx - (x + w / 2)) / (w / 2)) ** 2 + ((cy - (y + e / 2)) / (e / 2)) ** 2 < 0.8:
+                    d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=dark, width=1)
+        for yy in (y + h * 0.45, y + h * 0.6):
+            d.line((x - 2, yy, x + w + 2, yy), fill=dark, width=4)
+
+
+class Kid(El):
+    """Simple kid character, like the helper in the book."""
+
+    def __init__(self, cx, top, **kw):
+        super().__init__(**kw)
+        self.cx, self.top = cx, top
+
+    def bbox(self):
+        return (self.cx - 50, self.top, self.cx + 60, self.top + 210)
+
+    def draw(self, d, ox, oy):
+        cx, t = self.cx - ox, self.top - oy
+        skin, ink = (240, 200, 165), COL["ink"]
+        d.rectangle((cx - 14, t + 150, cx - 4, t + 205), fill=(90, 90, 100))
+        d.rectangle((cx + 4, t + 150, cx + 14, t + 205), fill=(90, 90, 100))
+        d.rounded_rectangle((cx - 30, t + 62, cx + 30, t + 155), radius=14, fill=(225, 75, 60))
+        d.line((cx + 26, t + 80, cx + 55, t + 60), fill=(225, 75, 60), width=12)
+        d.ellipse((cx + 48, t + 50, cx + 62, t + 64), fill=skin)
+        d.line((cx - 26, t + 80, cx - 34, t + 130), fill=(225, 75, 60), width=12)
+        d.ellipse((cx - 30, t + 2, cx + 30, t + 66), fill=skin, outline=ink, width=2)
+        d.chord((cx - 32, t - 2, cx + 32, t + 50), 180, 360, fill=(95, 60, 35))
+        d.ellipse((cx - 13, t + 34, cx - 7, t + 40), fill=ink)
+        d.ellipse((cx + 7, t + 34, cx + 13, t + 40), fill=ink)
+        d.arc((cx - 12, t + 38, cx + 12, t + 56), 20, 160, fill=ink, width=3)
+
+
+class Bubble(El):
+    """Speech bubble (rounded box with a tail on the left)."""
+    anim = "fade"
+
+    def __init__(self, x0, y0, x1, y1, tail_y=None, **kw):
+        super().__init__(**kw)
+        self.b = (x0, y0, x1, y1)
+        self.tail_y = tail_y
+
+    def bbox(self):
+        x0, y0, x1, y1 = self.b
+        return (x0 - 40 if self.tail_y else x0, y0, x1, y1)
+
+    def draw(self, d, ox, oy):
+        x0, y0, x1, y1 = [v - o for v, o in zip(self.b, (ox, oy, ox, oy))]
+        d.rounded_rectangle((x0, y0, x1, y1), radius=22, fill=COL["white"], outline=COL["pink"], width=4)
+        if self.tail_y:
+            ty = self.tail_y - oy
+            d.polygon([(x0 + 2, ty - 18), (x0 - 36, ty + 10), (x0 + 2, ty + 18)], fill=COL["white"])
+            d.line([(x0, ty - 18), (x0 - 36, ty + 10), (x0, ty + 18)], fill=COL["pink"], width=4)
 
 
 class Arrow(El):
@@ -367,7 +472,7 @@ def make_background():
 def caption_sprite(text):
     if not text:
         return None
-    f = font(30, 700, "andika")
+    f = font(27, 700, "andika")
     words, lines, cur = text.split(), [], ""
     for w in words:
         t = (cur + " " + w).strip()
@@ -378,14 +483,14 @@ def caption_sprite(text):
             cur = t
     lines.append(cur)
     lines = lines[:2]
-    h = 16 + 38 * len(lines)
+    h = 12 + 34 * len(lines)
     img = Image.new("RGBA", (W, h + 10), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     wmax = max(f.getlength(l) for l in lines)
     x0 = (W - wmax) / 2 - 24
     d.rounded_rectangle((x0, 0, W - x0, h), radius=16, fill=(43, 43, 58, 225))
     for i, l in enumerate(lines):
-        d.text((W / 2, 10 + 38 * i), l, font=f, fill=(255, 255, 255), anchor="mt")
+        d.text((W / 2, 8 + 34 * i), l, font=f, fill=(255, 255, 255), anchor="mt")
     return img, H - h - 8
 
 
