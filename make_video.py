@@ -127,7 +127,7 @@ def quick_scene():
 
 # ================================================================== problem solver
 UNIT_SIZE = {"one": 1, "ten": 10, "hundred": 100}
-MARK_GAP = {"one": 17, "ten": 30, "hundred": 44}
+MARK_GAP = {"one": 17, "ten": 38, "hundred": 44}
 
 
 def plan_steps(start, end):
